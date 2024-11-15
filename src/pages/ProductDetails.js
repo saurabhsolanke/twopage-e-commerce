@@ -7,7 +7,6 @@ import StarRating from '../components/StarRating';
 const ProductDetails = () => {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
-  const [loading, setLoading] = useState(true);
 
 
   useEffect(() => {
@@ -32,16 +31,9 @@ const ProductDetails = () => {
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-5">
- 
       <div className="col-span-1 lg:col-span-1 flex justify-center items-center bg-gray-100 p-5 rounded-lg border">
-        <img
-          className="object-contain h-64 w-full rounded-lg"
-          src={product.images[0]}
-          alt={product.title}
-        />
+        <img className="object-contain h-64 w-full rounded-lg" src={product.images[0]} alt={product.title} />
       </div>
-
-      
       <div className="col-span-1 lg:col-span-2 p-5 bg-white rounded-lg shadow-md">
         <div className="product-details space-y-4">
           <h2 className="font-bold text-3xl text-gray-800">{product.title}</h2>
@@ -49,13 +41,10 @@ const ProductDetails = () => {
           <p className="text-sm text-gray-500">Brand: {product.brand}</p>
 
           <div className="flex items-center">
-            {/* <span className="text-yellow-500 text-lg mr-1">⭐</span> */}
             <p className="text-sm text-gray-800">{product.rating}</p>
-          <StarRating rating={Math.round(product.rating)} />
+            <StarRating rating={Math.round(product.rating)} />
           </div>
-
           <p className="text-2xl font-semibold text-gray-800">Price: ${product.price}</p>
-
           {product.discountPercentage && (
             <p className="text-green-500 font-semibold">
               Discount: {product.discountPercentage}%
@@ -65,7 +54,6 @@ const ProductDetails = () => {
         </div>
       </div>
     </div>
-
   );
 };
 

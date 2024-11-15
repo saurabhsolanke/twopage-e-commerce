@@ -3,12 +3,11 @@ import axios from 'axios';
 import ProductCard from '../components/ProductCard';
 import Pagination from '../components/Pagination';
 
+const limit = 10;
 const ProductsList = () => {
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalProducts, setTotalProducts] = useState(0);
-
-  const limit = 10;
 
   useEffect(() => {
     const fetchProducts = async () => {
